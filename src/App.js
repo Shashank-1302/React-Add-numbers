@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import React, {useState } from "react";
 import './App.css';
+function AddNumber() {
+ 
+  const [num1, setNum1] = useState();
+  const [num2, setNum2] = useState();
+  const [total, setTotal] = useState(); 
+  const [t4, sett4] = useState(); 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+function onClick()
+{
+setTotal(Number(num1) + Number(num2)); // set number to the state
+}
+function setT4(){
+  sett4(total)
 }
 
-export default App;
+  return (
+    <div>
+      
+      <h1>Add Two Numbers</h1>
+
+      <label>Number 1</label>
+      <input type="text" name="num1" onChange={(event) =>
+              {
+                setNum1(event.target.value);      
+              }}>
+      </input>
+      <label>Number 2</label>
+      <input type="text" name="num2"  onChange={(event) =>
+              {
+                setNum2(event.target.value);      
+              }}>
+       </input>
+       <label>Total</label>
+       <button onClick={onClick}> Add</button>
+      <input type="text" value={ total }></input>  
+      <label>for putting in t4</label>
+      <button onClick={setT4}> submit</button>
+      <input type="text" value={ t4 }></input>  
+
+       
+     
+    </div>
+
+          
+      
+  );
+          
+}
+export default AddNumber;
